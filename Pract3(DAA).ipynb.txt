@@ -1,0 +1,172 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "s3VAC6V-2vD3",
+        "outputId": "ae5f80bd-8061-403e-8d76-8010a637f097"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of elements: 5\n",
+            "Enter the elements:\n",
+            "Element 1: 25\n",
+            "Element 2: 14\n",
+            "Element 3: 36\n",
+            "Element 4: 85\n",
+            "Element 5: 96\n",
+            "\n",
+            "Sorted Array (Ascending Order):\n",
+            "[14, 25, 36, 85, 96]\n",
+            "Execution Time: 0.0001858800001173222 seconds\n",
+            "\n",
+            "Time Complexity:\n",
+            "Best Case    : O(n log n)\n",
+            "Average Case : O(n log n)\n",
+            "Worst Case   : O(n log n)\n"
+          ]
+        }
+      ],
+      "source": [
+        "# MIN-Heap Sort\n",
+        "import time\n",
+        "import heapq\n",
+        "\n",
+        "# User Input\n",
+        "n = int(input(\"Enter the number of elements: \"))\n",
+        "arr = []\n",
+        "\n",
+        "print(\"Enter the elements:\")\n",
+        "for i in range(n):\n",
+        "    arr.append(int(input(f\"Element {i+1}: \")))\n",
+        "\n",
+        "# Measure Execution Time\n",
+        "start = time.perf_counter()\n",
+        "\n",
+        "heapq.heapify(arr)  # Convert list into Min Heap\n",
+        "\n",
+        "sorted_arr = []\n",
+        "while arr:\n",
+        "    sorted_arr.append(heapq.heappop(arr))\n",
+        "\n",
+        "end = time.perf_counter()\n",
+        "\n",
+        "# Display Result\n",
+        "print(\"\\nSorted Array (Ascending Order):\")\n",
+        "print(sorted_arr)\n",
+        "\n",
+        "print(\"Execution Time:\", end - start, \"seconds\")\n",
+        "\n",
+        "# Time Complexity\n",
+        "print(\"\\nTime Complexity:\")\n",
+        "print(\"Best Case    : O(n log n)\")\n",
+        "print(\"Average Case : O(n log n)\")\n",
+        "print(\"Worst Case   : O(n log n)\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#  MAX-Heap Sort\n",
+        "import time\n",
+        "import heapq\n",
+        "\n",
+        "# User Input\n",
+        "n = int(input(\"Enter the number of elements: \"))\n",
+        "arr = []\n",
+        "\n",
+        "print(\"Enter the elements:\")\n",
+        "for i in range(n):\n",
+        "    arr.append(int(input(f\"Element {i+1}: \")))\n",
+        "\n",
+        "# Measure Execution Time\n",
+        "start = time.perf_counter()\n",
+        "\n",
+        "# Convert elements to negative for Max Heap\n",
+        "max_heap = [-x for x in arr]\n",
+        "heapq.heapify(max_heap)\n",
+        "\n",
+        "sorted_arr = []\n",
+        "while max_heap:\n",
+        "    sorted_arr.append(-heapq.heappop(max_heap))\n",
+        "\n",
+        "end = time.perf_counter()\n",
+        "\n",
+        "# Display Result\n",
+        "print(\"\\nSorted Array (Descending Order):\")\n",
+        "print(sorted_arr)\n",
+        "\n",
+        "print(\"Execution Time:\", end - start, \"seconds\")\n",
+        "\n",
+        "# Time Complexity\n",
+        "print(\"\\nTime Complexity:\")\n",
+        "print(\"Best Case    : O(n log n)\")\n",
+        "print(\"Average Case : O(n log n)\")\n",
+        "print(\"Worst Case   : O(n log n)\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pGZZ6ogX3QfN",
+        "outputId": "9cbd0847-a9d7-4fe6-f5fc-acfb82426660"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of elements: 6\n",
+            "Enter the elements:\n",
+            "Element 1: 25\n",
+            "Element 2: 78\n",
+            "Element 3: 89\n",
+            "Element 4: 45\n",
+            "Element 5: 56\n",
+            "Element 6: 33\n",
+            "\n",
+            "Sorted Array (Descending Order):\n",
+            "[89, 78, 56, 45, 33, 25]\n",
+            "Execution Time: 0.00027305399999022484 seconds\n",
+            "\n",
+            "Time Complexity:\n",
+            "Best Case    : O(n log n)\n",
+            "Average Case : O(n log n)\n",
+            "Worst Case   : O(n log n)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "ZUpx93jN3aON"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
